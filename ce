@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+
+mkdir $1
+open -a "visual studio code" $1 
