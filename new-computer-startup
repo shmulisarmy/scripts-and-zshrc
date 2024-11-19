@@ -1,0 +1,22 @@
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+
+brew install node
+brew install python3
+brew install go
+brew install dotnet
+brew install git
+
+brew install cmatrix
+brew install asciiquarium
+
+
+brew install --cask visual-studio-code
+brew install --cask firefox
+brew install --cask zen-browser
+brew install --cask google-chrome
+brew install --cask WebStorm
+brew install --cask spotify
+brew install --cask docker
+
+brew install git

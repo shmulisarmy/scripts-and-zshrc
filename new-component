@@ -1,0 +1,79 @@
+#!/bin/bash
+
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+# Check if component name is provided
+if [ -z "$1" ]; then
+  echo -e "${RED}Error: No component name provided. ${NC}"
+  echo "Usage: ./create_component.sh ComponentName"
+  exit 1
+fi
+
+new_component_name="$1"
+component_dir="./$new_component_name"
+
+# Check if directory already exists
+if [ -d "$component_dir" ]; then
+  echo -e "${RED} Error: Directory $component_dir already exists. ${NC}"
+  exit 1
+fi
+
+# Create the component folder and files
+mkdir "$component_dir"
+touch "$component_dir/index.tsx"
+touch "$component_dir/index.test.tsx"
+touch "$component_dir/$new_component_name.module.css"
+touch "$component_dir/README.md"
+touch "$component_dir/types.ts"
+
+new_component_name_props="${new_component_name}Props"
+
+# Add content to index.tsx
+cat <<EOF > "$component_dir/index.tsx"
+import { JSX } from "solid-js";
+import { $new_component_name_props } from "./types";
+import styles from "./$new_component_name.module.css";
+
+export default function $new_component_name(props: $new_component_name_props): JSX.Element {
+    return <div class={styles.$new_component_name}></div>;
+}
+EOF
+
+# Add content to README.md
+cat <<EOF > "$component_dir/README.md"
+# $new_component_name
+
+This component is generated with a script.
+EOF
+
+# Add type definition to types.ts
+cat <<EOF > "$component_dir/types.ts"
+export type $new_component_name_props = {};
+EOF
+
+# Add CSS class to .module.css
+cat <<EOF > "$component_dir/$new_component_name.module.css"
+.$new_component_name {
+  /* Add component styles here */
+}
+EOF
+
+# Add boilerplate code to index.test.tsx
+cat <<EOF > "$component_dir/index.test.tsx"
+import { render } from "solid-js/web";
+import $new_component_name from "./index";
+
+describe("$new_component_name component", () => {
+  test("it renders without crashing", () => {
+    render(() => <$new_component_name />);
+  });
+});
+EOF
+
+open -a "Visual Studio Code" "$component_dir/index.tsx"
+
+
+# Final output message
+echo "import $new_component_name from './$new_component_name/index.tsx';"
+echo "Created $new_component_name component successfully."

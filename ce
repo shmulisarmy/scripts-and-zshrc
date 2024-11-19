@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
 
 
+echo "creating folder: " $1
 mkdir $1
-open -a "visual studio code" $1 
+open -a 'visual studio code' $1

@@ -1,11 +1,11 @@
-#!/usr/bin/env bash
 
 
-# used for quickly making a bash script
+scripts_folder_path="/Users/shmuli/scripts"
+
+fullFileName="$scripts_folder_path/$1"
 
 
-touch /Users/Shmuli/scripts/$1
-chmod +x /Users/Shmuli/scripts/$1
-open -a "visual studio code" /Users/Shmuli/scripts/$1 
-
-echo '#!/usr/bin/env bash' > /Users/Shmuli/scripts/$1
+echo "creating script: " $fullFileName
+touch $fullFileName
+chmod +x $fullFileName
+open -a 'visual studio code' $fullFileName
