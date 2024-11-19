@@ -1,13 +1,17 @@
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 export PATH="$PATH:/Users/Shmuli/Library/Python/3.9/bin"
 export PATH="$PATH:/Users/Shmuli/scripts"
 export PATH="$PATH:/Users/Shmuli/downloads/go/bin"
 export PATH="$HOME/.local/bin:$PATH"
+export TMPDIR="/tmp"
+export PGDATA=/usr/local/var/postgres
+PATH=~/.console-ninja/.bin:$PATH
 
 
 # source /Users/Shmuli/coding-projects/wasm/emsdk/emsdk_env.sh
 
 
-alias fp="git add * && git commit -m 'empty commit message' && git push"
 alias code="open -a 'visual studio code' $1"
 alias .="code ."
 alias uv="uvicorn main:app --reload"
@@ -28,9 +32,17 @@ alias p="python3 ."
 alias gnb="git checkout -b"
 alias gb="git branch"
 alias gm="git switch main"
+alias gs="git switch $1"
 alias wasmCompile="emcc ../main.cpp -o main.js -s EXPORTED_RUNTIME_METHODS='["ccall", "cwrap"]'"
+alias psql="/Library/PostgreSQL/17/scripts/runpsql.sh"
 # alias g-s="git init; git add .; git commit -m 'initial commit'; git remote add origin https://github.com/Shmuli/coding-projects.git; git push -u origin main"
 
 alias o=" open main.html"
-PATH=~/.console-ninja/.bin:$PATH
 alias c="clear"
+alias i="open index.html"
+alias os="ollama serve"
+alias o="ollama"
+alias ft="grep -r '//Todo'"
+
+# . "/Users/shmuli/.deno/env"export PATH="$PATH:/Users/shmuli/.modular/bin"
+export PATH="$PATH:/Users/shmuli/.modular/bin"
