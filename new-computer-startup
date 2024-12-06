@@ -6,6 +6,8 @@ brew install python3
 brew install go
 brew install dotnet
 brew install git
+brew install fzf
+brew install vhs
 
 brew install cmatrix
 brew install asciiquarium
